@@ -35,14 +35,16 @@ fun getMusic(genre: Genre): kotlinx.coroutines.flow.Flow<UIState> //kotlin flows
 class MusicRepositoryImpl(serviceApi: MusicApi) : MusicRepository {
 
     override fun getMusic(genre: Genre): kotlinx.coroutines.flow.Flow<UIState> = flow {
+
+        //for spinner with delay
         emit(UIState.LOADING)
 
-        //Do not add delays on production code
+        //Do not add delays in production environments
         delay(2000) //delay to demonstrate the loading phase
 
 /*Catching errors in coroutines*/
         try {
-            //making the network call
+            //actually making the network call
             val response = serviceApi.getMusic(genre.genreName)
             //checking if it's successful
             if (response.isSuccessful){

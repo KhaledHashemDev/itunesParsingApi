@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.160081053698075" />
         <entry key="app/src/main/res/layout/fragment_rock_songs.xml" value="0.15476190476190477" />
+        <entry key="app/src/main/res/layout/song_item.xml" value="0.335" />
       </map>
     </option>
   </component>

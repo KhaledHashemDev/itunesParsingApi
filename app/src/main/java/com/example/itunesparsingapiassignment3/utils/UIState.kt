@@ -4,7 +4,7 @@ import com.example.itunesparsingapiassignment3.model.Song
 
 
 /**
- *
+ *Enum class with superpowers
  *A sealed class is part of kotlin, it allows you to
  * restrict the way that you are going to inherit it
  * Success: ready to display data to the user
@@ -16,7 +16,8 @@ import com.example.itunesparsingapiassignment3.model.Song
  */
 sealed class UIState {
 
-    //object loading extends the UISTATE
+    //extends the UISTATE
+    //singleton in koltin (object keyword)
     object LOADING : UIState()
 
     data class SUCCESS(val songs: List<Song>) : UIState()

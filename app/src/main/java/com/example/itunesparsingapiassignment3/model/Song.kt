@@ -7,7 +7,7 @@ data class Song(
     @SerializedName("artistId")
     val artistId: Int? = null,
     @SerializedName("artistName")
-    val artistName: String? = null,
+    val artistName: String? = null,//
     @SerializedName("artistViewUrl")
     val artistViewUrl: String? = null,
     @SerializedName("artworkUrl100")
@@ -15,7 +15,7 @@ data class Song(
     @SerializedName("artworkUrl30")
     val artworkUrl30: String? = null,
     @SerializedName("artworkUrl60")
-    val artworkUrl60: String? = null,
+    val artworkUrl60: String? = null,//
     @SerializedName("collectionCensoredName")
     val collectionCensoredName: String? = null,
     @SerializedName("collectionExplicitness")
@@ -23,7 +23,7 @@ data class Song(
     @SerializedName("collectionId")
     val collectionId: Int? = null,
     @SerializedName("collectionName")
-    val collectionName: String? = null,
+    val collectionName: String? = null,//
     @SerializedName("collectionPrice")
     val collectionPrice: Double? = null,
     @SerializedName("collectionViewUrl")
@@ -61,7 +61,7 @@ data class Song(
     @SerializedName("trackNumber")
     val trackNumber: Int? = null,
     @SerializedName("trackPrice")
-    val trackPrice: Double? = null,
+    val trackPrice: Double? = null,//
     @SerializedName("trackTimeMillis")
     val trackTimeMillis: Int? = null,
     @SerializedName("trackViewUrl")

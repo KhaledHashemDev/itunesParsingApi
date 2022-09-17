@@ -56,9 +56,9 @@ class SongsViewModel(
     .IO is a thread that the body of the function will run, launch is
      the builder of the Coroutine (Coroutine vs viewModelScope(runs in the main thread
      by default, need to declare Dispatchers.IO) */
-     fun getMusic() {
+     fun getMusic(genre: Genre) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getMusic(Genre.ROCK).collect {
+            repository.getMusic(genre).collect {
 
 /* set (it) vs postValue -  postValue posts the value in the main thread as well as in
 the worker thread, always. Set value, directly sets the value to the main thread */
