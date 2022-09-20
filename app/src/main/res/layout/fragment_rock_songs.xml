@@ -3,13 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.RockSongsFragment">
 
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/rock_songs_rv"
+
+
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/swipe_to_refresh"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:visibility="gone" />
+      android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rock_songs_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+  </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
   <ProgressBar
       android:id="@+id/loading_spinner"

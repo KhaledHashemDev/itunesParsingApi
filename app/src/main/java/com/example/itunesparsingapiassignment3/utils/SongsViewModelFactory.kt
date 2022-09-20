@@ -2,7 +2,7 @@ package com.example.itunesparsingapiassignment3.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.itunesparsingapiassignment3.MusicRepository
+import com.example.itunesparsingapiassignment3.rest.MusicRepository
 import com.example.itunesparsingapiassignment3.viewmodel.SongsViewModel
 
 //Instantiate it with the repo when needed

@@ -90,4 +90,8 @@ dependencies {
 
     // google assertion truth
     implementation 'androidx.test.ext:truth:1.4.0'
+
+    //swipe to refresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cards_navigation"
+    app:startDestination="@id/RockSongsFragment"
+    >
+
+
+    <fragment
+        android:id="@+id/RockSongsFragment"
+        android:name="com.example.itunesparsingapiassignment3.view.RockSongsFragment"
+        tools:layout="@layout/fragment_rock_songs"
+        android:label="Rock Songs"
+        ></fragment>
+
+    <fragment
+        android:id="@+id/ClassicSongsFragment"
+        android:name="com.example.itunesparsingapiassignment3.view.ClassicSongsFragment"
+        tools:layout="@layout/fragment_rock_songs"
+        android:label="Classic Songs"
+        >
+        <action
+            android:id="@+id/action_ClassicSongsFragment_to_PopSongsFragment"
+            app:destination="@id/PopSongsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/PopSongsFragment"
+        android:name="com.example.itunesparsingapiassignment3.view.PopSongsFragment"
+        tools:layout="@layout/fragment_rock_songs"
+        android:label="Pop Songs"
+        >
+        <action
+            android:id="@+id/action_PopSongsFragment_to_ClassicSongsFragment"
+            app:destination="@id/ClassicSongsFragment" />
+    </fragment>
+
+
+
+</navigation>

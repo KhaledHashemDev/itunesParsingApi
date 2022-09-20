@@ -1,16 +1,13 @@
-package com.example.itunesparsingapiassignment3
+package com.example.itunesparsingapiassignment3.rest
 
-import com.example.itunesparsingapiassignment3.model.Song
-import com.example.itunesparsingapiassignment3.model.Songs
-import com.example.itunesparsingapiassignment3.rest.MusicApi
-import com.example.itunesparsingapiassignment3.rest.MusicApi.Companion.serviceApi
+import com.example.itunesparsingapiassignment3.model.domain.mapToDomainSongs
 import com.example.itunesparsingapiassignment3.utils.FailureResponseFromServer
 import com.example.itunesparsingapiassignment3.utils.Genre
 import com.example.itunesparsingapiassignment3.utils.NullResponseFromServer
 import com.example.itunesparsingapiassignment3.utils.UIState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
-import java.util.concurrent.Flow
+import javax.inject.Inject
 
 
 /**Note:
@@ -21,10 +18,11 @@ import java.util.concurrent.Flow
  */
 
 interface MusicRepository {
-    //flow will be emitting data continuously to the collector in the
-    // view model that will be collecting the data
-    //The view is going to be emitting the UIState and doing something
-    //will not access data via a string, it will be via an enum class "genre"
+    /* low will be emitting data continuously to the collector in the
+       view model that will be collecting the data
+       The view is going to be emitting the UIState and doing something
+       will not access data via a string, it will be via an enum class "genre" */
+
 fun getMusic(genre: Genre): kotlinx.coroutines.flow.Flow<UIState> //kotlin flows have a coroutine scope but they need to be called form a coroutine scope
 
 }
@@ -32,7 +30,9 @@ fun getMusic(genre: Genre): kotlinx.coroutines.flow.Flow<UIState> //kotlin flows
 /**
  * serviceApi is where we are going to get  the network code
  */
-class MusicRepositoryImpl(serviceApi: MusicApi) : MusicRepository {
+class MusicRepositoryImpl @Inject constructor(
+    private val serviceApi : MusicApi
+) : MusicRepository {
 
     override fun getMusic(genre: Genre): kotlinx.coroutines.flow.Flow<UIState> = flow {
 
@@ -51,7 +51,7 @@ class MusicRepositoryImpl(serviceApi: MusicApi) : MusicRepository {
                 //checking the body, if the body is not null
                 response.body()?.let {
                     // emit the list  of songs
-                    emit(UIState.SUCCESS(it.songs))
+                    emit(UIState.SUCCESS(it.songs.mapToDomainSongs()))
                     //if the body of the response is null, throw a null response from server, with custom message
                 } ?: throw NullResponseFromServer("Songs are null")  //we created our own custom exceptions in utils folder
             }else{
